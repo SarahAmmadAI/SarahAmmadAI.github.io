@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiny Backend — Sarah Ammad</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="brand">
+      <a href="index.html"><span class="mono">SA</span> Sarah Ammad</a>
+    </div>
+    <div class="nav-links">
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <section class="case-header" style="border-top:none; padding-top:56px;">
+    <span class="tag">Node.js · Express</span>
+    <h1 style="font-weight:500; font-size:28px;">Tiny Backend</h1>
+    <p class="subtitle">A minimal Express server with two JSON endpoints — my first backend assignment for the FlyRank internship.</p>
+  </section>
+
+  <section>
+    <h2>Overview</h2>
+    <p>A small Express.js server exposing two endpoints: one that returns a hello message, and one that returns server status and the current time. Built to practice basic backend/API fundamentals.</p>
+  </section>
+
+  <section>
+    <h2>Screenshot</h2>
+    <figure class="shot">
+      <img src="images/tinybackend-readme.png" alt="Tiny Backend README showing endpoint documentation: GET / returns a hello message, GET /status returns server status and current time">
+      <figcaption>Project README — endpoints and setup instructions.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Endpoints</h2>
+    <ul style="padding-left: 20px; color: var(--muted);">
+      <li><code>GET /</code> — returns a hello message</li>
+      <li><code>GET /status</code> — returns server status and current time</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Run it locally</h2>
+    <p><code>npm install</code> then <code>node server.js</code>, then visit <code>localhost:3000</code> or <code>localhost:3000/status</code>.</p>
+  </section>
+
+  <section>
+    <h2>Code</h2>
+    <p><a href="https://github.com/SarahAmmadAI/tiny-backend" target="_blank" rel="noopener">View on GitHub →</a></p>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">© 2026 Sarah Ammad</div>
+</footer>
+
+</body>
+</html>

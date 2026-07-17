@@ -3,46 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sarah Ammad</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Inter', sans-serif;
-    background: #FAFAF8;
-    color: #1A1A1A;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .logo {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: #1B2A4A;
-    color: #FAFAF8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 500;
-    font-size: 20px;
-  }
-  h1 {
-    font-weight: 500;
-    font-size: 28px;
-  }
-  p {
-    color: #1A1A1A88;
-    font-size: 15px;
-  }
-</style>
+<title>Sarah Ammad — Portfolio</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="logo">SA</div>
-  <h1>Sarah Ammad</h1>
-  <p>Portfolio coming soon.</p>
+
+<nav>
+  <div class="nav-inner">
+    <div class="brand">
+      <a href="index.html"><span class="mono">SA</span> Sarah Ammad</a>
+    </div>
+    <div class="nav-links">
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <section class="hero" style="border-top:none;">
+    <h1>Sarah Ammad</h1>
+    <p class="claim">AI engineering student building real, working software — from a Java campus management system to a live backend API.</p>
+    <a class="btn" href="projects.html">See my work</a>
+  </section>
+
+  <section>
+    <h2>Featured project</h2>
+    <div class="card">
+      <span class="tag">Java · OOP</span>
+      <h3>Smart Campus Management System</h3>
+      <p>A desktop app for managing students, courses, and facilities, with a live campus status map.</p>
+      <a href="project-campus.html">View case study →</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skills">
+      <span>Java</span>
+      <span>OOP Design</span>
+      <span>Node.js / Express</span>
+      <span>HTML &amp; CSS</span>
+      <span>Git &amp; GitHub</span>
+      <span>C++ (learning)</span>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">© 2026 Sarah Ammad</div>
+</footer>
+
 </body>
 </html>
