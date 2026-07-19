@@ -5,7 +5,7 @@
   --bg: #FAFAF8;
   --main: #1B2A4A;
   --accent: #0F6E56;
-  --muted: #1A1A1A88;
+  --muted: #555554;
   --border: #1A1A1A22;
 }
 
@@ -37,6 +37,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 10px;
 }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 500; }
 .brand a { color: var(--text); display: flex; align-items: center; gap: 10px; }
