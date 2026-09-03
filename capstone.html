@@ -4,16 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Capstone — Sarah Ammad</title>
-<meta name="description" content="Sarah Ammad's FlyRank AI Fluency capstone project — in progress.">
+<meta name="description" content="Sarah Ammad's FlyRank AI Fluency capstone project — Usage Metering & Billing Service.">
 <meta property="og:title" content="Capstone — Sarah Ammad">
-<meta property="og:description" content="Sarah Ammad's FlyRank AI Fluency capstone project — in progress.">
+<meta property="og:description" content="Sarah Ammad's FlyRank AI Fluency capstone project — Usage Metering & Billing Service.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sarahammadai.github.io/capstone.html">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <nav>
   <div class="nav-inner">
     <div class="brand">
@@ -27,21 +26,32 @@
     </div>
   </div>
 </nav>
-
 <div class="wrap">
   <section class="hero" style="border-top:none;">
     <h1>Capstone</h1>
-    <p class="claim">My FlyRank AI Fluency capstone project is in progress. Updates and write-ups will be posted here as the work develops.</p>
+    <p class="claim">Usage Metering &amp; Billing Service — my FlyRank AI Fluency backend capstone, built on top of my tiny-backend API. It adds idempotent usage metering, quota enforcement, AI-token cost computation, and Stripe test-mode billing with signature-verified webhooks, on top of Supabase authentication and a background job system.</p>
+  </section>
+
+  <section>
+    <h2 style="font-weight:500; font-size:20px; margin-bottom:14px;">CRUD API — Swagger docs</h2>
+    <p style="margin-bottom:14px;">Full task CRUD with interactive API docs.</p>
+    <img src="swagger-screenshot.png" alt="Swagger UI showing Task API CRUD endpoints" style="max-width:100%; border-radius:8px; margin-bottom:32px;">
+
+    <h2 style="font-weight:500; font-size:20px; margin-bottom:14px;">Auth-protected endpoints</h2>
+    <p style="margin-bottom:14px;">Supabase Auth integration with bearer-token protected routes, shown in Swagger with padlock icons.</p>
+    <img src="swagger-auth-screenshot.png" alt="Swagger UI showing authenticated endpoints with padlock icons" style="max-width:100%; border-radius:8px; margin-bottom:32px;">
+
+    <h2 style="font-weight:500; font-size:20px; margin-bottom:14px;">Database</h2>
+    <p style="margin-bottom:14px;">SQLite database inspected in DB Browser, confirming persistence and schema.</p>
+    <img src="db-browser-screenshot.png" alt="DB Browser for SQLite showing the database schema and data" style="max-width:100%; border-radius:8px;">
   </section>
 </div>
-
 <footer>
   <div class="wrap">
     © 2026 Sarah Ammad
     <!-- <a href="FLYRANK_VERIFICATION_URL"><img src="flyrank-badge.svg" alt="FlyRank AI Fluency Graduate" height="32"></a> -->
   </div>
 </footer>
-
 <script data-goatcounter="https://sarahammad.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
