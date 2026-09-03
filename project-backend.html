@@ -4,29 +4,40 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tiny Backend — Sarah Ammad</title>
+<meta name="description" content="Tiny Backend — a minimal Express.js API by Sarah Ammad, built for the FlyRank AI Fluency internship.">
+<meta property="og:title" content="Tiny Backend — Sarah Ammad">
+<meta property="og:description" content="A minimal Express.js API by Sarah Ammad, built for the FlyRank AI Fluency internship.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sarahammadai.github.io/project-backend.html">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <nav>
   <div class="nav-inner">
     <div class="brand">
-      <a href="index.html"><span class="mono">SA</span> Sarah Ammad</a>
+      <a href="index.html"><span class="mark">[SA]</span> Sarah Ammad</a>
     </div>
     <div class="nav-links">
-      <a href="projects.html">Projects</a>
+      <a href="projects.html" class="current">Projects</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
+      <a href="capstone.html">Capstone</a>
     </div>
   </div>
 </nav>
-
 <div class="wrap">
-
   <section class="case-header" style="border-top:none; padding-top:56px;">
-    <span class="tag">Node.js · Express</span>
-    <h1 style="font-weight:500; font-size:28px;">Tiny Backend</h1>
+    <h1 style="font-weight:600; font-size:28px;">Tiny Backend</h1>
     <p class="subtitle">A minimal Express server with two JSON endpoints — my first backend assignment for the FlyRank internship.</p>
+  </section>
+
+  <section style="padding-top:0;">
+    <dl class="spec">
+      <div class="spec-row"><dt>stack</dt><dd>Node.js, Express</dd></div>
+      <div class="spec-row"><dt>endpoints</dt><dd><code>GET /</code> returns a hello message · <code>GET /status</code> returns server status and current time</dd></div>
+      <div class="spec-row"><dt>code</dt><dd><a href="https://github.com/SarahAmmadAI/tiny-backend" target="_blank" rel="noopener">github.com/SarahAmmadAI/tiny-backend</a></dd></div>
+    </dl>
   </section>
 
   <section>
@@ -36,35 +47,19 @@
 
   <section>
     <h2>Screenshot</h2>
-    <figure class="shot">
+    <figure class="shot" style="margin-bottom:0;">
       <img src="backend-readme.png" alt="Tiny Backend README showing endpoint documentation: GET / returns a hello message, GET /status returns server status and current time">
       <figcaption>Project README — endpoints and setup instructions.</figcaption>
     </figure>
   </section>
 
   <section>
-    <h2>Endpoints</h2>
-    <ul style="padding-left: 20px; color: var(--muted);">
-      <li><code>GET /</code> — returns a hello message</li>
-      <li><code>GET /status</code> — returns server status and current time</li>
-    </ul>
-  </section>
-
-  <section>
     <h2>Run it locally</h2>
     <p><code>npm install</code> then <code>node server.js</code>, then visit <code>localhost:3000</code> or <code>localhost:3000/status</code>.</p>
   </section>
-
-  <section>
-    <h2>Code</h2>
-    <p><a href="https://github.com/SarahAmmadAI/tiny-backend" target="_blank" rel="noopener">View on GitHub →</a></p>
-  </section>
-
 </div>
-
 <footer>
   <div class="wrap">© 2026 Sarah Ammad</div>
 </footer>
-
 </body>
 </html>
