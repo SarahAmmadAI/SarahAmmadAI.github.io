@@ -3,77 +3,165 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Capstone — Sarah Ammad</title>
-<meta name="description" content="Sarah Ammad's FlyRank AI Fluency capstone project — Usage Metering & Billing Service.">
-<meta property="og:title" content="Capstone — Sarah Ammad">
-<meta property="og:description" content="Sarah Ammad's FlyRank AI Fluency capstone project — Usage Metering & Billing Service.">
+<meta name="theme-color" content="#101c32">
+<title>Usage Metering &amp; Billing Service — Sarah Ammad</title>
+<meta name="description" content="Sarah Ammad's FlyRank AI Fluency capstone: a backend usage metering and billing service with idempotent event tracking, quota enforcement, AI-token cost computation, and verified Stripe webhooks.">
+<meta property="og:title" content="Usage Metering &amp; Billing Service — Sarah Ammad">
+<meta property="og:description" content="A backend engineering capstone focused on reliable usage tracking, quota enforcement, and billing workflows.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sarahammadai.github.io/capstone.html">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#0b1220;--panel:#111d30;--panel2:#15243a;--line:rgba(190,211,235,.15);--text:#f3f7fc;--muted:#a9b8cc;--green:#6ee7b7;--mint:#b8f7df;--blue:#8cb8ff;--mono:'DM Mono',monospace;--sans:'DM Sans',sans-serif;--display:'Space Grotesk',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:var(--sans);background:radial-gradient(ellipse at 80% 0%,rgba(37,99,235,.16),transparent 34rem),radial-gradient(ellipse at 0% 25%,rgba(16,185,129,.09),transparent 30rem),var(--bg);color:var(--text);line-height:1.7;font-size:16px}
+a{color:var(--green);text-decoration:none;transition:color .2s ease,background .2s ease,border-color .2s ease}
+a:hover{color:#d3ffef}
+a:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+.wrap{width:min(1100px,calc(100% - 44px));margin-inline:auto}
+nav{position:sticky;top:0;z-index:10;background:rgba(11,18,32,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand a{font-weight:700;color:var(--text);display:flex;align-items:center;gap:11px}
+.mark{display:grid;place-items:center;width:39px;height:39px;border:1px solid rgba(110,231,183,.45);border-radius:12px;color:var(--green);font:12px var(--mono);background:rgba(110,231,183,.08)}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:14px}
+.nav-links a{color:var(--muted)}.nav-links a:hover,.nav-links a.current{color:var(--text)}
+.nav-links a.current{position:relative}.nav-links a.current:after{content:"";height:2px;position:absolute;bottom:-11px;left:0;right:0;background:var(--green);border-radius:2px}
+.nav-toggle{display:none;background:transparent;border:1px solid var(--line);border-radius:10px;color:var(--text);padding:8px 12px}
+.crumb{padding:28px 0 0;color:#8497b0;font:12px var(--mono);letter-spacing:.04em}.crumb a{color:#b1c2d8}
+.hero{padding:62px 0 54px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);align-items:center;gap:54px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 12px;border:1px solid rgba(110,231,183,.27);border-radius:999px;background:rgba(110,231,183,.07);color:var(--mint);font:11px var(--mono);text-transform:uppercase;letter-spacing:.12em}
+.dot{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 15px rgba(110,231,183,.7)}
+h1,h2,h3{font-family:var(--display);line-height:1.15;letter-spacing:-.035em}
+h1{font-size:clamp(2.8rem,6vw,5rem);margin:22px 0 20px;max-width:720px}
+.gradient{background:linear-gradient(100deg,#f4f8ff 5%,#b7f6df 68%,#86b4ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(17px,2vw,19px);line-height:1.8;color:var(--muted);max-width:620px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 17px;border:1px solid var(--line);border-radius:12px;color:var(--text);font-weight:600;font-size:14px;background:rgba(255,255,255,.035)}
+.btn.primary{background:var(--green);color:#082018;border-color:var(--green)}.btn.primary:hover{background:#b8f7df;color:#082018}.btn:hover{border-color:rgba(110,231,183,.6);text-decoration:none}
+.terminal{position:relative;overflow:hidden;padding:22px;border:1px solid rgba(164,195,231,.2);border-radius:22px;background:linear-gradient(150deg,rgba(24,42,66,.95),rgba(13,24,41,.96));box-shadow:0 28px 90px rgba(0,0,0,.24)}
+.terminal:before{content:"";position:absolute;width:200px;height:200px;right:-100px;top:-110px;border-radius:50%;background:rgba(110,231,183,.11);filter:blur(6px)}
+.terminal-head{display:flex;align-items:center;gap:7px;padding-bottom:18px;border-bottom:1px solid var(--line);font:11px var(--mono);color:#91a6c0}
+.traffic{width:8px;height:8px;border-radius:50%;background:#ff7e86}.traffic:nth-child(2){background:#ffd16d}.traffic:nth-child(3){background:#6ee7b7}
+.terminal-title{margin-left:auto}
+.terminal-body{padding:20px 0 4px;font:12px/2 var(--mono);color:#b9c9dc;overflow-wrap:anywhere}
+.prompt{color:var(--green)}.term-blue{color:var(--blue)}.term-white{color:#f5f8ff}.term-dim{color:#7188a5}
+.metric-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.metric{border:1px solid var(--line);background:rgba(255,255,255,.035);border-radius:12px;padding:12px 10px}
+.metric strong{display:block;font:600 19px var(--display);color:var(--mint)}.metric span{display:block;color:#91a6c0;font-size:10px;margin-top:3px}
+.section{padding:70px 0;border-top:1px solid var(--line)}
+.section-head{max-width:680px;margin-bottom:30px}
+.kicker{font:11px var(--mono);text-transform:uppercase;letter-spacing:.15em;color:var(--green);margin-bottom:12px}
+h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:14px}
+.section-head p,.body-copy{color:var(--muted);max-width:720px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.feature{padding:23px;border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,rgba(20,35,56,.86),rgba(15,27,44,.8));transition:transform .2s ease,border-color .2s ease}
+.feature:hover{transform:translateY(-3px);border-color:rgba(110,231,183,.4)}
+.feature .number{font:11px var(--mono);color:var(--green);margin-bottom:17px}
+.feature h3{font-size:19px;margin-bottom:9px;letter-spacing:-.02em}
+.feature p{font-size:14px;color:var(--muted)}
+.stack{display:flex;gap:9px;flex-wrap:wrap;margin-top:23px}
+.stack span{font:11px var(--mono);color:#c4d2e4;border:1px solid var(--line);background:rgba(255,255,255,.025);padding:7px 10px;border-radius:8px}
+.spec{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 30px;border-top:1px solid var(--line)}
+.spec-row{display:grid;grid-template-columns:105px 1fr;gap:15px;padding:16px 0;border-bottom:1px solid var(--line);font-size:14px}
+.spec-row dt{font:11px var(--mono);text-transform:uppercase;letter-spacing:.07em;color:#8fa4be;padding-top:4px}.spec-row dd{color:#e6edf7;overflow-wrap:anywhere}
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.shot{padding:12px;border:1px solid var(--line);border-radius:16px;background:rgba(17,29,48,.78);margin:0}
+.shot img{width:100%;height:auto;display:block;border-radius:9px;border:1px solid rgba(180,201,228,.16);background:#0b1220}
+.shot figcaption{padding:13px 5px 4px;color:var(--muted);font-size:13px}
+.shot.full{grid-column:1/-1}.shot.full img{max-height:560px;object-fit:contain;object-position:top}
+.note{margin-top:22px;padding:18px 20px;border-left:3px solid var(--green);border-radius:0 12px 12px 0;background:rgba(110,231,183,.06);color:var(--muted);font-size:14px}
+.cta{display:flex;align-items:center;justify-content:space-between;gap:25px;padding:28px;border:1px solid rgba(110,231,183,.22);border-radius:18px;background:linear-gradient(110deg,rgba(110,231,183,.09),rgba(140,184,255,.06))}
+.cta h3{font-size:22px;margin-bottom:7px}.cta p{color:var(--muted);font-size:14px}
+footer{padding:30px 0 42px;border-top:1px solid var(--line);color:#8194ad;font:11px var(--mono)}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:760px){.hero{grid-template-columns:1fr;gap:30px;padding-top:43px}.terminal{max-width:580px}.grid,.shots,.spec{grid-template-columns:1fr}.shot.full{grid-column:auto}.section{padding:52px 0}.nav-links{gap:17px}}
+@media(max-width:560px){.wrap{width:min(100% - 32px,1100px)}.nav-inner{height:67px}.nav-toggle{display:block}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;padding:10px 22px 18px;background:#0b1220;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}.nav-links.open{display:flex}.nav-links a{padding:11px 0;border-bottom:1px solid var(--line)}.nav-links a:last-child{border-bottom:0}.nav-links a.current:after{display:none}.crumb{padding-top:20px}h1{font-size:2.7rem}.metric-row{gap:7px}.metric{padding:10px 8px}.metric strong{font-size:17px}.spec-row{grid-template-columns:85px 1fr;gap:10px}.cta{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+</style>
 </head>
 <body>
 <nav>
-  <div class="nav-inner">
-    <div class="brand">
-      <a href="index.html"><span class="mark">[SA]</span> Sarah Ammad</a>
-    </div>
+  <div class="wrap nav-inner">
+    <div class="brand"><a href="index.html"><span class="mark">[SA]</span> Sarah Ammad</a></div>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
     <div class="nav-links">
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="capstone.html" class="current">Capstone</a>
+      <a href="projects.html">Projects</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="capstone.html" class="current" aria-current="page">Capstone</a>
     </div>
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span></button>
   </div>
 </nav>
-<div class="wrap">
-  <p class="crumb"><a href="index.html">Home</a> / Capstone</p>
-  <section class="case-header" style="border-top:none; padding-top:20px;">
-    <h1 style="font-weight:600; font-size:28px;">Capstone</h1>
-    <p class="subtitle">Usage Metering &amp; Billing Service — my FlyRank AI Fluency backend capstone, built on top of my tiny-backend API.</p>
+<main class="wrap">
+  <p class="crumb"><a href="index.html">HOME</a> / CAPSTONE</p>
+  <section class="hero" aria-labelledby="page-title">
+    <div>
+      <span class="eyebrow"><span class="dot"></span> FlyRank AI Fluency · Capstone</span>
+      <h1 id="page-title">Usage metering.<br><span class="gradient">Built for trust.</span></h1>
+      <p class="lead">A backend service designed to track product usage, enforce quotas, calculate AI-token costs, and support billing workflows — extending my existing Node.js API into a more complete service.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/SarahAmmadAI/tiny-backend" target="_blank" rel="noopener noreferrer">Explore the code <span aria-hidden="true">↗</span></a>
+        <a class="btn" href="#screenshots">View screenshots ↓</a>
+      </div>
+    </div>
+    <aside class="terminal" aria-label="Illustrative API feature overview">
+      <div class="terminal-head"><span class="traffic"></span><span class="traffic"></span><span class="traffic"></span><span class="terminal-title">service-overview</span></div>
+      <div class="terminal-body">
+        <div><span class="term-dim">$</span> <span class="term-white">capstone inspect</span></div>
+        <div><span class="prompt">✓</span> <span class="term-blue">usage events</span> <span class="term-white">→ idempotent</span></div>
+        <div><span class="prompt">✓</span> <span class="term-blue">quota checks</span> <span class="term-white">→ enforced</span></div>
+        <div><span class="prompt">✓</span> <span class="term-blue">token costs</span> <span class="term-white">→ computed</span></div>
+        <div><span class="prompt">✓</span> <span class="term-blue">Stripe webhooks</span> <span class="term-white">→ signature-verified</span></div>
+        <div style="margin-top:15px"><span class="term-dim">// Reliable backend behavior, not just endpoints.</span></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric"><strong>API</strong><span>Express</span></div>
+        <div class="metric"><strong>Auth</strong><span>Supabase</span></div>
+        <div class="metric"><strong>DB</strong><span>SQLite</span></div>
+      </div>
+    </aside>
   </section>
-
-  <section style="padding-top:0;">
+  <section class="section" id="overview">
+    <div class="section-head"><p class="kicker">01 / Overview</p><h2>From API endpoints to service thinking.</h2><p>This capstone explores the backend pieces needed when a product must measure usage and connect it to limits and billing. The focus is on clear behavior, safe request handling, and keeping the data layer understandable.</p></div>
+    <div class="grid">
+      <article class="feature"><div class="number">FEATURE / 01</div><h3>Idempotent usage metering</h3><p>Designed to avoid counting the same usage event more than once when a request is retried.</p></article>
+      <article class="feature"><div class="number">FEATURE / 02</div><h3>Quota enforcement</h3><p>Usage limits help determine whether an operation should be allowed to proceed.</p></article>
+      <article class="feature"><div class="number">FEATURE / 03</div><h3>AI-token cost computation</h3><p>Calculates usage costs from token-related inputs, connecting technical activity to understandable cost data.</p></article>
+      <article class="feature"><div class="number">FEATURE / 04</div><h3>Verified billing webhooks</h3><p>Stripe test-mode webhook handling checks signatures before processing incoming events.</p></article>
+    </div>
+    <div class="stack" aria-label="Technology stack"><span>Node.js</span><span>Express</span><span>Supabase Auth</span><span>SQLite</span><span>Stripe · test mode</span><span>Swagger / OpenAPI</span></div>
+  </section>
+  <section class="section" id="details">
+    <div class="section-head"><p class="kicker">02 / Project details</p><h2>The implementation at a glance.</h2><p>Built on top of my <a href="https://github.com/SarahAmmadAI/tiny-backend" target="_blank" rel="noopener noreferrer">tiny-backend project</a>, this work brings together API design, authentication, persistence, and billing-related workflows.</p></div>
     <dl class="spec">
-      <div class="spec-row"><dt>status</dt><dd>Shipped</dd></div>
-      <div class="spec-row"><dt>stack</dt><dd>Node.js, Express, Supabase Auth, SQLite, Stripe (test mode)</dd></div>
-      <div class="spec-row"><dt>features</dt><dd>Idempotent usage metering, quota enforcement, AI-token cost computation, signature-verified Stripe webhooks</dd></div>
-      <div class="spec-row"><dt>code</dt><dd><a href="https://github.com/SarahAmmadAI/tiny-backend" target="_blank" rel="noopener">github.com/SarahAmmadAI/tiny-backend</a></dd></div>
+      <div class="spec-row"><dt>Status</dt><dd>Capstone implementation completed</dd></div>
+      <div class="spec-row"><dt>Project</dt><dd>Usage Metering &amp; Billing Service</dd></div>
+      <div class="spec-row"><dt>Runtime</dt><dd>Node.js with Express</dd></div>
+      <div class="spec-row"><dt>Authentication</dt><dd>Supabase Auth</dd></div>
+      <div class="spec-row"><dt>Persistence</dt><dd>SQLite</dd></div>
+      <div class="spec-row"><dt>Payments</dt><dd>Stripe test mode; signature-verified webhooks</dd></div>
+      <div class="spec-row"><dt>API docs</dt><dd>Swagger UI for interactive endpoint exploration</dd></div>
+      <div class="spec-row"><dt>Source code</dt><dd><a href="https://github.com/SarahAmmadAI/tiny-backend" target="_blank" rel="noopener noreferrer">View repository ↗</a></dd></div>
     </dl>
+    <p class="note">Note: Stripe is configured for test-mode development. This project page describes a learning capstone, not a production payment service.</p>
   </section>
-
-  <section>
-    <h2>CRUD API — Swagger docs</h2>
-    <figure class="shot">
-      <img src="swagger-screenshot.png" alt="Swagger UI showing Task API CRUD endpoints">
-      <figcaption>Full task CRUD with interactive API docs at /docs.</figcaption>
-    </figure>
+  <section class="section" id="screenshots">
+    <div class="section-head"><p class="kicker">03 / Under the hood</p><h2>A look inside the build.</h2><p>These screenshots document the API surface, protected routes, and local database used during development.</p></div>
+    <div class="shots">
+      <figure class="shot"><img src="swagger-screenshot.png" alt="Swagger UI displaying task API CRUD endpoints" loading="lazy"><figcaption><strong>01 — Interactive API documentation</strong><br>Swagger UI for exploring the task CRUD endpoints.</figcaption></figure>
+      <figure class="shot"><img src="swagger-auth-screenshot.png" alt="Swagger UI showing authentication-protected endpoints with lock icons" loading="lazy"><figcaption><strong>02 — Authentication</strong><br>Bearer-token protected routes represented in Swagger UI.</figcaption></figure>
+      <figure class="shot full"><img src="db-browser-screenshot.png" alt="DB Browser for SQLite displaying the project's database schema and records" loading="lazy"><figcaption><strong>03 — Persistent data</strong><br>SQLite schema and stored records inspected in DB Browser for SQLite.</figcaption></figure>
+    </div>
   </section>
-
-  <section>
-    <h2>Auth-protected endpoints</h2>
-    <figure class="shot">
-      <img src="swagger-auth-screenshot.png" alt="Swagger UI showing authenticated endpoints with padlock icons">
-      <figcaption>Supabase Auth integration with bearer-token protected routes, shown in Swagger with padlock icons.</figcaption>
-    </figure>
+  <section class="section">
+    <div class="cta"><div><p class="kicker">04 / Source code</p><h3>Want to explore the implementation?</h3><p>Browse the repository for the code and project structure.</p></div><a class="btn primary" href="https://github.com/SarahAmmadAI/tiny-backend" target="_blank" rel="noopener noreferrer">Open GitHub repository ↗</a></div>
   </section>
-
-  <section>
-    <h2>Database</h2>
-    <figure class="shot" style="margin-bottom:0;">
-      <img src="db-browser-screenshot.png" alt="DB Browser for SQLite showing the database schema and data">
-      <figcaption>SQLite database inspected in DB Browser, confirming persistence and schema.</figcaption>
-    </figure>
-  </section>
-</div>
-<footer>
-  <div class="wrap">
-    © 2026 Sarah Ammad
-    <!-- <a href="FLYRANK_VERIFICATION_URL"><img src="flyrank-badge.svg" alt="FlyRank AI Fluency Graduate" height="32"></a> -->
-  </div>
-</footer>
+</main>
+<footer><div class="wrap footer-inner"><span>© 2026 Sarah Ammad</span><span>Designed &amp; built with care · <a href="index.html">Back to portfolio ↑</a></span></div></footer>
+<script>
+(function(){var toggle=document.querySelector('.nav-toggle');var links=document.querySelector('.nav-links');if(!toggle||!links)return;toggle.addEventListener('click',function(){var open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'Close':'Menu';});links.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){links.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='Menu';});});})();
+</script>
 <script data-goatcounter="https://sarahammad.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<script src="app.js"></script>
 </body>
 </html>
