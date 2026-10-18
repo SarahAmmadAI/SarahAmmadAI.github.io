@@ -1,0 +1,6 @@
+name = "sarah-portfolio-chatbot"
+main = "worker.js"
+compatibility_date = "2026-10-16"
+
+[vars]
+OPENAI_MODEL = "gpt-4.1-mini"
