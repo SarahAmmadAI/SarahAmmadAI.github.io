@@ -65,3 +65,81 @@ footer{padding:30px 0 42px;border-top:1px solid var(--line);color:#8194ad;font:1
 .metric-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}.metric{border:1px solid var(--line);background:rgba(255,255,255,.035);border-radius:12px;padding:12px 10px}.metric strong{display:block;font:600 19px var(--display);color:var(--mint)}.metric span{display:block;color:#91a6c0;font-size:10px;margin-top:3px}
 @media(max-width:760px){.hero-layout{grid-template-columns:1fr;gap:30px}.hero-layout .terminal{max-width:580px}}
 @media(max-width:560px){.hero-layout{gap:24px}.metric-row{gap:7px}.metric{padding:10px 8px}.metric strong{font-size:17px}}
+
+
+/* Soft feminine polish: blush, rose and lilac accents while keeping the tech-first navy theme */
+:root{
+  --rose:#f3a6c8;
+  --blush:#ffd8e8;
+  --lilac:#c8b8ff;
+}
+body{
+  background:
+    radial-gradient(ellipse at 92% 8%,rgba(243,166,200,.13),transparent 30rem),
+    radial-gradient(ellipse at 5% 45%,rgba(200,184,255,.10),transparent 28rem),
+    radial-gradient(ellipse at 80% 80%,rgba(37,99,235,.10),transparent 32rem),
+    var(--bg);
+}
+a:hover{color:var(--blush)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline-color:var(--rose)}
+.brand .mark{
+  border-color:rgba(243,166,200,.52);
+  color:var(--blush);
+  background:linear-gradient(145deg,rgba(243,166,200,.14),rgba(200,184,255,.10));
+  border-radius:15px;
+  box-shadow:inset 0 0 18px rgba(243,166,200,.04);
+}
+.nav-links a.current:after{
+  background:linear-gradient(90deg,var(--rose),var(--lilac));
+}
+.hero .highlight,.case-header .highlight{
+  background:linear-gradient(105deg,#fff7fb 4%,var(--blush) 38%,var(--lilac) 72%,#9cc5ff);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero>.kicker,.case-header>.kicker{
+  border-color:rgba(243,166,200,.28);
+  background:linear-gradient(110deg,rgba(243,166,200,.09),rgba(200,184,255,.08));
+  color:#ffe1ee;
+}
+.kicker{color:var(--blush)}
+.eyebrow-dot{
+  background:var(--rose);
+  box-shadow:0 0 15px rgba(243,166,200,.72);
+}
+.btn{
+  border-color:var(--rose);
+  background:linear-gradient(110deg,var(--green),#b8f7df 58%,#f7c5dc);
+  color:#10202a;
+}
+.btn:hover{
+  background:linear-gradient(110deg,#d0ffed,var(--blush));
+  color:#10202a;
+}
+.btn.secondary:hover{border-color:var(--rose);color:var(--blush)}
+.project-row:hover{
+  border-color:rgba(243,166,200,.42);
+  box-shadow:0 18px 42px rgba(0,0,0,.15),0 0 26px rgba(243,166,200,.035);
+}
+.project-row .stack{color:#f3b5d2}
+.skills span:hover{border-color:var(--rose);color:var(--blush)}
+.terminal:before{
+  background:rgba(243,166,200,.13);
+}
+.terminal:after{
+  content:"✧";
+  position:absolute;right:22px;top:42px;
+  color:rgba(255,216,232,.72);font-size:19px;
+  pointer-events:none;
+}
+.metric strong{color:#ffd8e8}
+input:focus,textarea:focus{
+  border-color:var(--rose);
+  box-shadow:0 0 0 3px rgba(243,166,200,.10);
+}
+.note{
+  border-left-color:var(--rose);
+  background:linear-gradient(100deg,rgba(243,166,200,.075),rgba(200,184,255,.045));
+}
+@media(prefers-reduced-motion:no-preference){
+  .brand .mark,.project-row,.btn{transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease}
+}
