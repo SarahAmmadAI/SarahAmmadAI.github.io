@@ -163,5 +163,5 @@ footer{padding:30px 0 42px;border-top:1px solid var(--line);color:#8194ad;font:1
 (function(){var toggle=document.querySelector('.nav-toggle');var links=document.querySelector('.nav-links');if(!toggle||!links)return;toggle.addEventListener('click',function(){var open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'Close':'Menu';});links.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){links.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='Menu';});});})();
 </script>
 <script data-goatcounter="https://sarahammad.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-</body>
+<script src="chatbot.js" defer></script></body>
 </html>
