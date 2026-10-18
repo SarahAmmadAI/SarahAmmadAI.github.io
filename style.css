@@ -143,3 +143,54 @@ input:focus,textarea:focus{
 @media(prefers-reduced-motion:no-preference){
   .brand .mark,.project-row,.btn{transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease}
 }
+
+
+/* Cohesive feminine palette across every page: midnight plum, rose, blush and lilac */
+:root{
+  --bg:#100f20;
+  --panel:#19172b;
+  --panel2:#211d38;
+  --line:rgba(228,198,231,.17);
+  --text:#fff7fc;
+  --muted:#c2b6cb;
+  --green:#f3a6c8;
+  --mint:#ffd8e8;
+  --blue:#c8b8ff;
+}
+body{
+  background:
+    radial-gradient(ellipse at 88% 2%,rgba(243,166,200,.16),transparent 31rem),
+    radial-gradient(ellipse at 8% 28%,rgba(200,184,255,.13),transparent 30rem),
+    radial-gradient(ellipse at 75% 90%,rgba(143,157,255,.08),transparent 32rem),
+    var(--bg);
+}
+nav{background:rgba(16,15,32,.88)}
+.nav-links a.current:after{background:linear-gradient(90deg,var(--rose),var(--lilac))}
+.btn{
+  border-color:var(--rose);
+  background:linear-gradient(110deg,#f3a6c8,#ffd8e8);
+  color:#271426;
+}
+.btn:hover{background:linear-gradient(110deg,#ffd8e8,#e5d9ff);color:#271426}
+.btn.secondary:hover{border-color:var(--rose);color:var(--blush)}
+.status>div{border-left-color:rgba(243,166,200,.6)}
+.status .v,.project-row .stack{color:var(--rose)}
+.project-row{
+  background:linear-gradient(145deg,rgba(35,29,56,.94),rgba(24,22,43,.88));
+}
+.project-row:hover{
+  background:linear-gradient(145deg,rgba(44,34,63,.97),rgba(26,23,46,.92));
+  border-color:rgba(243,166,200,.42);
+}
+.skills span{background:rgba(255,216,232,.025)}
+.terminal{
+  background:linear-gradient(150deg,rgba(37,30,57,.97),rgba(20,19,39,.98));
+  border-color:rgba(200,184,255,.22);
+}
+.terminal-body .term-blue{color:var(--lilac)}
+.terminal-body .prompt{color:var(--rose)}
+.metric{background:rgba(255,216,232,.035)}
+.metric strong{color:var(--blush)}
+input[type=text],input[type=email],textarea{background:#171428;color:var(--text)}
+.nav-toggle{background:rgba(200,184,255,.04)}
+@media(max-width:560px){.nav-links{background:#100f20}}
