@@ -194,3 +194,20 @@ nav{background:rgba(16,15,32,.88)}
 input[type=text],input[type=email],textarea{background:#171428;color:var(--text)}
 .nav-toggle{background:rgba(200,184,255,.04)}
 @media(max-width:560px){.nav-links{background:#100f20}}
+
+
+/* User-requested deeper purple site background */
+:root{
+  --bg:#160b2b;
+  --panel:#20113a;
+  --panel2:#2a1747;
+}
+body{
+  background:
+    radial-gradient(ellipse at 88% 4%,rgba(243,166,200,.13),transparent 31rem),
+    radial-gradient(ellipse at 8% 30%,rgba(156,112,255,.16),transparent 30rem),
+    radial-gradient(ellipse at 76% 90%,rgba(116,79,201,.12),transparent 32rem),
+    var(--bg);
+}
+nav{background:rgba(22,11,43,.9)}
+@media(max-width:560px){.nav-links{background:#160b2b}}
