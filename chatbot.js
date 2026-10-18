@@ -4,7 +4,7 @@
 
   // After deploying chatbot-worker, replace this with its public HTTPS URL.
   // Example: https://sarah-portfolio-chatbot.your-subdomain.workers.dev
-  var CHATBOT_API_URL = "https://sarah-portfolio-chatbot.YOUR-SUBDOMAIN.workers.dev";
+  var CHATBOT_API_URL = "https://sarah-portfolio-chatbot.sarahammadai.workers.dev";
 
   var suggestions = [
     "What projects has Sarah built?",
