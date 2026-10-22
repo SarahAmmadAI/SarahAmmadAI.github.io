@@ -9,6 +9,13 @@
   <meta property="og:description" content="Projects, experiments, and learning in software engineering, backend development, and artificial intelligence.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sarahammadai.github.io/">
+<meta property="og:image" content="https://sarahammadai.github.io/headshot.jpg">
+<meta property="og:image:alt" content="Sarah Ammad — AI and software portfolio">
+<meta property="og:site_name" content="Sarah Ammad Portfolio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sarah Ammad — AI &amp; Software Portfolio">
+<meta name="twitter:description" content="Projects and practical learning in software engineering, backend development, and applied AI.">
+<meta name="twitter:image" content="https://sarahammadai.github.io/headshot.jpg">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="chatbot.css">
@@ -23,7 +30,7 @@
         <a href="projects.html">Projects</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="capstone.html">Capstone</a>
+        <a href="capstone.html">Capstone</a><a href="cv.pdf" class="nav-cv" target="_blank" rel="noopener noreferrer">CV ↗</a>
       </div>
     </div>
   </nav>
@@ -32,8 +39,8 @@
     <section class="hero hero-layout">
       <div>
         <p class="kicker"><span class="eyebrow-dot"></span>BS Artificial Intelligence · COMSATS Islamabad</p>
-        <h1>I build things to <span class="highlight">understand how they work.</span></h1>
-        <p class="claim">I’m Sarah Ammad, an AI student exploring the space between software engineering and artificial intelligence. I turn what I learn into practical projects—from Java applications and backend APIs to AI-powered tools—and share the process along the way.</p>
+        <h1>I turn curiosity into <span class="highlight">things you can use.</span></h1>
+        <p class="claim">I’m Sarah Ammad. I enjoy exploring how software works, then turning what I learn into practical projects—from Java applications and backend APIs to AI-assisted tools. I care about clear fundamentals, thoughtful implementation, and building things I can explain.</p>
         <div class="actions">
           <a class="btn" href="projects.html">Explore my work <span aria-hidden="true">↗</span></a>
           <a class="btn secondary" href="cv.pdf" target="_blank" rel="noopener noreferrer">View résumé <span aria-hidden="true">↗</span></a>
@@ -85,21 +92,30 @@
           <div class="stack">Java · Swing · OOP</div>
           <h3>Smart Campus Management System</h3>
           <p>A desktop application for managing campus information, with a dashboard and map interface for building status.</p>
-          <a href="project-campus.html">Read the case study →</a>
+          <p class="project-result"><strong>Result:</strong> A working desktop interface that brings campus records and building status into one place.</p><a href="project-campus.html">Read the case study →</a>
         </article>
         <article class="project-row">
           <img src="backend-readme.png" alt="Tiny Backend API project documentation" loading="lazy">
           <div class="stack">Node.js · Express · API</div>
           <h3>Tiny Backend</h3>
           <p>A hands-on backend project for practising routes, JSON responses, API behaviour, and server-side fundamentals.</p>
-          <a href="project-backend.html">Read the case study →</a>
+          <p class="project-result"><strong>Result:</strong> A runnable Express API with clear routes and predictable JSON responses.</p><a href="project-backend.html">Read the case study →</a>
         </article>
         <article class="project-row">
           <div class="project-art" aria-hidden="true"><span>01</span><span>USAGE → QUOTA → BILLING</span></div>
           <div class="stack">Backend · Reliability · Billing</div>
           <h3>Usage Metering &amp; Billing Service</h3>
           <p>A capstone exploring idempotent usage tracking, quota enforcement, token-cost calculation, and Stripe test-mode webhooks.</p>
-          <a href="capstone.html">Explore the capstone →</a>
+          <p class="project-result"><strong>Result:</strong> A documented service design covering idempotency, quota checks, token costs, and test-mode webhook verification.</p><a href="capstone.html">Explore the capstone →</a>
+        </article>
+
+        <article class="project-row">
+          <div class="project-art agent-art" aria-hidden="true"><span>AI</span><span>FILES → SUMMARIZE → STUDY</span></div>
+          <div class="stack">AI workflow · Claude Desktop · Filesystem MCP</div>
+          <h3>Study Notes Summarizer Agent</h3>
+          <p>An AI-assisted workflow that works with study files and turns source material into concise, easier-to-review notes.</p>
+          <p class="project-result"><strong>Result:</strong> A repeatable file-to-summary workflow that reduces manual note-condensing work.</p>
+          <a href="projects.html#study-notes-agent">View project overview →</a>
         </article>
       </div>
       <div class="section-link"><a class="text-link" href="projects.html">Browse all project details <span aria-hidden="true">→</span></a></div>
