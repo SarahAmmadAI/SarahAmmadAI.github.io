@@ -115,7 +115,7 @@
     }
 
     function getPortfolioAnswer(question) {
-      var q = String(question || "").toLowerCase().replace(/[^a-z0-9@.+/ ]/g, " ").replace(/\\s+/g, " ").trim();
+      var q = String(question || "").toLowerCase().replace(/[^a-z0-9@.+/ ]/g, " ").replace(/\s+/g, " ").trim();
       if (/who is she|who is sarah|tell me about sarah|about sarah/.test(q)) return "Sarah Ammad is a BS Artificial Intelligence student at COMSATS University Islamabad, Pakistan. She builds practical software and AI-assisted tools while strengthening her programming and backend foundations. Her portfolio includes a Java Swing campus management system, an Express API, a usage-metering and billing capstone, and an AI study-notes summarizer workflow. Explore her work at https://sarahammadai.github.io/projects.html.";
       if (/project|built|builds|portfolio work|show me.*work/.test(q)) return "Sarahs featured projects are: Smart Campus Management System (Java Swing and OOP); Tiny Backend (Node.js/Express API); Usage Metering & Billing Service (idempotent usage tracking, quotas, token-cost calculations, and Stripe test-mode webhooks); and Study Notes Summarizer Agent (Claude Desktop and Filesystem MCP). See details at https://sarahammadai.github.io/projects.html.";
       if (/skill|technolog|programming language|tech stack|what does she use/.test(q)) return "The portfolio shows Java, Java Swing, OOP, Node.js, Express, HTTP APIs, JSON, backend service design, usage metering, and AI-assisted workflows with Claude Desktop and Filesystem MCP. Sarah is also building her C++ and data-structures foundations. Details: https://sarahammadai.github.io/projects.html.";
