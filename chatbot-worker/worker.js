@@ -134,43 +134,27 @@ export default {
       return json({ error: "The latest message must be from the visitor." }, 400, origin);
     }
 
-    if (!env.OPENAI_API_KEY) {
-      return json({ error: "The AI service has not been configured yet." }, 503, origin);
+    if (!env.AI || typeof env.AI.run !== "function") {
+      return json({ error: "The free AI binding is not enabled yet. Deploy the Worker with the AI binding configured." }, 503, origin);
     }
 
     try {
-      const upstream = await fetch("https://api.openai.com/v1/responses", {
-        method: "POST",
-        headers: {
-          "Authorization": "Bearer " + env.OPENAI_API_KEY,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          model: env.OPENAI_MODEL || "gpt-4.1-mini",
-          instructions: SYSTEM_PROMPT,
-          input: messages,
-          max_output_tokens: 350,
-          store: false
-        })
+      // Uses Cloudflare Workers AI's included allocation; no paid OpenAI API key is used.
+      const result = await env.AI.run("@cf/meta/llama-3.1-8b-instruct", {
+        messages: [
+          { role: "system", content: SYSTEM_PROMPT },
+          ...messages
+        ],
+        max_tokens: 350
       });
 
-      if (!upstream.ok) {
-        // Keep provider details and credentials out of public responses.
-        const status = upstream.status === 429 ? 503 : 502;
-        return json({ error: status === 503 ? "The AI service is busy. Please try again shortly." : "The AI service could not complete the request." }, status, origin);
-      }
-
-      const data = await upstream.json();
-      const reply = Array.isArray(data.output)
-        ? data.output.flatMap(item => Array.isArray(item.content) ? item.content : [])
-            .filter(item => item.type === "output_text" && typeof item.text === "string")
-            .map(item => item.text).join("\n").trim()
+      const reply = result && typeof result.response === "string"
+        ? result.response.trim()
         : "";
-
       if (!reply) return json({ error: "The AI returned an empty response. Please try again." }, 502, origin);
       return json({ reply: reply.slice(0, 5000) }, 200, origin);
     } catch {
-      return json({ error: "Could not reach the AI service. Please try again shortly." }, 502, origin);
+      return json({ error: "The free AI service is temporarily unavailable or its included quota has been reached. Please try again later." }, 503, origin);
     }
   }
 };
