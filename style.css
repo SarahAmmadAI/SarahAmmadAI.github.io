@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
-:root{--bg:#0b1220;--panel:#111d30;--panel2:#15243a;--line:rgba(190,211,235,.15);--text:#f3f7fc;--muted:#a9b8cc;--green:#6ee7b7;--mint:#b8f7df;--blue:#8cb8ff;--mono:'DM Mono',monospace;--sans:'DM Sans',sans-serif;--display:'Space Grotesk',sans-serif;--radius:18px}
+:root{--bg:#160b2b;--panel:#21133a;--panel2:#2b1948;--line:rgba(224,198,245,.17);--text:#fff7fc;--muted:#c9bad9;--green:#f3a6c8;--mint:#ffd8e8;--blue:#c8b8ff;--mono:'DM Mono',monospace;--sans:'DM Sans',sans-serif;--display:'Space Grotesk',sans-serif;--radius:18px}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:95px}
-body{font-family:var(--sans);background:radial-gradient(ellipse at 80% 0%,rgba(37,99,235,.16),transparent 34rem),radial-gradient(ellipse at 0% 25%,rgba(16,185,129,.09),transparent 30rem),var(--bg);color:var(--text);line-height:1.7;font-size:16px;min-height:100vh}
+body{font-family:var(--sans);background:radial-gradient(ellipse at 80% 0%,rgba(200,184,255,.17),transparent 34rem),radial-gradient(ellipse at 0% 25%,rgba(243,166,200,.10),transparent 30rem),var(--bg);color:var(--text);line-height:1.7;font-size:16px;min-height:100vh}
 a{color:var(--green);text-decoration:none;transition:color .2s ease,border-color .2s ease,background .2s ease}a:hover{color:#d3ffef}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--green);outline-offset:4px}
 img{max-width:100%;display:block;border:1px solid var(--line);border-radius:14px}
 code,.mono,.project-row .stack,.skills span,.status,.spec-row dt,.contact-list .label{font-family:var(--mono)}
 .wrap{width:min(1100px,calc(100% - 44px));margin-inline:auto;padding:0}
-nav{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.84);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+nav{position:sticky;top:0;z-index:20;background:rgba(22,11,43,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
 .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .brand a{font-family:var(--display);font-weight:700;color:var(--text);display:flex;align-items:center;gap:11px;letter-spacing:-.025em}
 .brand a:hover{text-decoration:none;color:var(--mint)}
