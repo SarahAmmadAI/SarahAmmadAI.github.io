@@ -114,6 +114,18 @@
       return wrap;
     }
 
+    function getPortfolioAnswer(question) {
+      var q = String(question || "").toLowerCase().replace(/[^a-z0-9@.+/ ]/g, " ").replace(/\\s+/g, " ").trim();
+      if (/who is she|who is sarah|tell me about sarah|about sarah/.test(q)) return "Sarah Ammad is a BS Artificial Intelligence student at COMSATS University Islamabad, Pakistan. She builds practical software and AI-assisted tools while strengthening her programming and backend foundations. Her portfolio includes a Java Swing campus management system, an Express API, a usage-metering and billing capstone, and an AI study-notes summarizer workflow. Explore her work at https://sarahammadai.github.io/projects.html.";
+      if (/project|built|builds|portfolio work|show me.*work/.test(q)) return "Sarahs featured projects are: Smart Campus Management System (Java Swing and OOP); Tiny Backend (Node.js/Express API); Usage Metering & Billing Service (idempotent usage tracking, quotas, token-cost calculations, and Stripe test-mode webhooks); and Study Notes Summarizer Agent (Claude Desktop and Filesystem MCP). See details at https://sarahammadai.github.io/projects.html.";
+      if (/skill|technolog|programming language|tech stack|what does she use/.test(q)) return "The portfolio shows Java, Java Swing, OOP, Node.js, Express, HTTP APIs, JSON, backend service design, usage metering, and AI-assisted workflows with Claude Desktop and Filesystem MCP. Sarah is also building her C++ and data-structures foundations. Details: https://sarahammadai.github.io/projects.html.";
+      if (/education|study|university|degree|where does she study/.test(q)) return "Sarah is studying for a BS in Artificial Intelligence at COMSATS University Islamabad, Pakistan. Read more at https://sarahammadai.github.io/about.html.";
+      if (/capstone|billing|usage metering|stripe/.test(q)) return "The Usage Metering & Billing Service is a backend capstone exploring idempotent usage-event tracking, quota enforcement, AI-token cost computation, and Stripe test-mode webhook verification. Read the case study at https://sarahammadai.github.io/capstone.html.";
+      if (/study notes|summarizer|agent|claude|filesystem mcp/.test(q)) return "The Study Notes Summarizer Agent is an AI-assisted workflow using Claude Desktop and Filesystem MCP to work with study files and produce concise review notes. Explore the projects at https://sarahammadai.github.io/projects.html.";
+      if (/contact|email|linkedin|github|reach her|connect/.test(q)) return "Contact Sarah at https://sarahammadai.github.io/contact.html, explore her code at https://github.com/SarahAmmadAI, or connect on LinkedIn at https://www.linkedin.com/in/sarah-ammad-16024138a/.";
+      return null;
+    }
+
     function setBusy(value) {
       isBusy = value;
       send.disabled = value;
@@ -135,6 +147,15 @@
       if (messages.length > 12) messages = messages.slice(-12);
       input.value = "";
       input.style.height = "auto";
+
+      // Answer common portfolio questions from verified facts even when the live AI is offline.
+      var instantAnswer = getPortfolioAnswer(message);
+      if (instantAnswer) {
+        addMessage("assistant", instantAnswer);
+        messages.push({ role: "assistant", content: instantAnswer });
+        if (messages.length > 12) messages = messages.slice(-12);
+        return;
+      }
       setBusy(true);
       var typing = addMessage("assistant", "Thinking…");
       typing.classList.add("is-typing");
