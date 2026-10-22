@@ -244,3 +244,12 @@ nav{background:rgba(22,11,43,.9)}
  .project-art{height:170px}
  .approach-card{padding:19px}
 }
+
+
+/* Clear, scannable project outcomes and navigation CV action */
+.project-result{padding:11px 12px;border:1px solid rgba(243,166,200,.19);border-left:2px solid var(--rose);border-radius:0 10px 10px 0;background:rgba(243,166,200,.045);font-size:13px!important;line-height:1.7;color:#d8c9dc!important;margin:0 0 5px!important}
+.project-result strong{color:var(--blush);font-weight:600}
+.project-note{font-size:12px!important;line-height:1.7;color:#a99ab7!important}
+.nav-links .nav-cv{padding:8px 12px;border:1px solid rgba(243,166,200,.35);border-radius:10px;color:var(--blush);background:rgba(243,166,200,.07)}
+.nav-links .nav-cv:hover{background:rgba(243,166,200,.15);color:#fff}
+@media(max-width:560px){.nav-links .nav-cv{display:inline-block;margin-top:8px;text-align:center}}
