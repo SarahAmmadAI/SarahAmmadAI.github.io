@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1364" height="584" viewBox="0 0 1364 584">
+<rect width="1364" height="584" fill="#f4efe3"/>
+<g font-family="Arial,sans-serif" fill="#17294b">
+<text x="212" y="53" font-family="Georgia,serif" font-size="31" font-weight="bold">Campus Lost &amp; Found</text>
+<text x="212" y="77" font-size="13" fill="#64738b">Lost property office · Database Systems project</text>
+<g font-size="14"><text x="229" y="124" font-weight="bold">Desk</text><text x="300" y="124">Lost items</text><text x="405" y="124">Found items</text><text x="518" y="124">Claims</text><text x="598" y="124">Exam queries</text></g>
+<path d="M212 138H1152" stroke="#17294b" stroke-width="2"/>
+<text x="212" y="178" font-family="Georgia,serif" font-size="24" font-weight="bold">The desk</text>
+<text x="212" y="198" font-size="13" fill="#64738b">What needs attention today.</text>
+<rect x="891" y="168" width="131" height="34" rx="8" fill="#bd342a" stroke="#17294b" stroke-width="2"/><text x="905" y="190" font-size="14" fill="white" font-weight="bold">Report lost item</text>
+<rect x="1027" y="168" width="127" height="34" rx="8" fill="#fffdf8" stroke="#17294b" stroke-width="2"/><text x="1041" y="190" font-size="14" font-weight="bold">Log found item</text>
+<g fill="#fffdf8" stroke="#17294b" stroke-width="2.5">
+<rect x="212" y="216" width="227" height="91" rx="12"/><rect x="451" y="216" width="227" height="91" rx="12"/><rect x="690" y="216" width="227" height="91" rx="12"/><rect x="929" y="216" width="227" height="91" rx="12"/>
+</g>
+<g font-family="Georgia,serif" font-size="28" font-weight="bold"><text x="230" y="262" fill="#bd342a">2</text><text x="469" y="262" fill="#df8a08">3</text><text x="708" y="262">2</text><text x="947" y="262" fill="#18845d">2</text></g>
+<g font-size="10" fill="#64738b" letter-spacing=".5"><text x="230" y="286">OPEN LOST REPORTS</text><text x="469" y="286">FOUND ITEMS ON SHELF</text><text x="708" y="286">CLAIMS TO VERIFY</text><text x="947" y="286">RETURNED TO OWNERS</text></g>
+<rect x="212" y="324" width="940" height="138" rx="11" fill="#fffdf8" stroke="#17294b"/>
+<text x="229" y="358" font-size="16" font-weight="bold">Found items by category</text>
+<g font-size="12"><text x="229" y="384">Accessories</text><text x="229" y="409">Electronics</text><text x="229" y="434">Documents</text></g>
+<g fill="#eee6d2"><rect x="339" y="373" width="779" height="12" rx="6"/><rect x="339" y="398" width="779" height="12" rx="6"/><rect x="339" y="423" width="779" height="12" rx="6"/></g>
+<g fill="#d9890b"><rect x="339" y="373" width="779" height="12" rx="6"/><rect x="339" y="398" width="779" height="12" rx="6"/><rect x="339" y="423" width="389" height="12"/></g>
+<g font-size="12"><text x="1128" y="384">2</text><text x="1128" y="409">2</text><text x="1128" y="434">1</text></g>
+<text x="212" y="502" font-size="10" fill="#64738b" letter-spacing=".8">Database: ORACLE</text>
+</g></svg>
